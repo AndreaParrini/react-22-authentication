@@ -7,13 +7,13 @@ import EventDetailPage, {
   action as deleteEventAction,
 } from './pages/EventDetail';
 import EventsPage, { loader as eventsLoader } from './pages/Events';
-import EventsRootLayout from './pages/EventsRoot';
+import RootEventsLayout from './pages/RootEvents';
 import HomePage from './pages/Home';
 import NewEventPage from './pages/NewEvent';
 import RootLayout from './pages/Root';
 import { action as manipulateEventAction } from './components/EventForm';
 import NewsletterPage, { action as newsletterAction } from './pages/Newsletter';
-import AutenticationPage from './pages/Authentication';
+import AutenticationPage, {action as AuthAction} from './pages/Authentication';
 
 const router = createBrowserRouter([
   {
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
       { index: true, element: <HomePage /> },
       {
         path: 'events',
-        element: <EventsRootLayout />,
+        element: <RootEventsLayout />,
         children: [
           {
             index: true,
@@ -57,7 +57,8 @@ const router = createBrowserRouter([
       },
       {
         path: 'auth',
-        element: <AutenticationPage />
+        element: <AutenticationPage />,
+        action: AuthAction
       },
       {
         path: 'newsletter',
