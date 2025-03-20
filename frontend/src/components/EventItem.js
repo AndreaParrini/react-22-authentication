@@ -1,15 +1,16 @@
-import { Link, useSubmit } from 'react-router-dom';
-
 import classes from './EventItem.module.css';
 
+import {Link, useSubmit} from 'react-router-dom';
+
 function EventItem({ event }) {
-  const submit = useSubmit();
+
+  const submit =  useSubmit()
 
   function startDeleteHandler() {
-    const proceed = window.confirm('Are you sure?');
+    const proceed = window.confirm('Are you sure ?');
 
-    if (proceed) {
-      submit(null, { method: 'delete' });
+    if(proceed){
+      submit(null, {method: 'delete'}); // il primo valore da mandare sono i dati che si vogliono inviare al backend, in questo caso null in quanto si elimina un record
     }
   }
 
